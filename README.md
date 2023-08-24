@@ -12,39 +12,82 @@ iv) Rotate and display the video
 ## Software Used
 Anaconda - Python 3.7
 ## Algorithm
-### Step 1:
-<br>
+```
+Step 1:
+Import cv2 and capture the video using cv2.VideoCapture(0).
 
-### Step 2:
-<br>
+Step 2:
+Write the captured image using cv2.imwrite("NewPicture.jpg",frame).
 
-### Step 3:
-<br>
+Step 3:
+Resize the image using cv2.resize(frame, (0,0), fx = 0.5, fy=0.5).
 
-### Step 4:
-<br>
+Step 4:
+Display the image until the loop gets over.
 
-### Step 5:
-<br>
+Step 5:
+Rotate the image using cv2.rotate(smaller_frame,cv2.cv2.ROTATE_180).
+```
+
 
 ## Program:
 ``` Python
-### Developed By:
-### Register No:
+### Developed By:KATHIRVEL.A
+### Register No:212221230047
 
 ## i) Write the frame as JPG file
-
+```
+import cv2
+img = cv2.VideoCapture(0)
+while(True):
+    imagee,frame = img.read()
+    cv2.imshow('myimage',frame)
+    if cv2.waitKey(1) == ord('c'):
+        break
+img.release()
+cv2.destroyAllWindows()
+```
 
 
 
 ## ii) Display the video
 
+```
+import cv2
+video = cv2.VideoCapture(0)
+while (True):
+    cap,frame=video.read()
+    cv2.imshow('Capturing Video',frame)
+    if cv2.waitKey(1) == ord('q'):
+        break
+video.release()
 
+```
 
 
 ## iii) Display the video by resizing the window
 
+```
+import cv2
+import numpy as np
+img  = cv2.VideoCapture(0)
+while True:
+    pic,frame = img.read()
+    width = int(img.get(3))
+    height = int(img.get(4))
+    image = np.zeros(frame.shape, np.uint8)
+    small_frame = cv2.resize(frame,(0,0),fx =0.5, fy = 0.5)
+    image[:height//2, :width//2]=small_frame
+    image[height//2:, :width//2]=small_frame
+    image[:height//2, width//2:]=small_frame
+    image[height//2:, width//2:]=small_frame
+    cv2.imshow('myimage',image)
+    if cv2.waitKey(1) == ord('c'):
+        break
+img.release()
+cv2.destroyAllWindows()
 
+```
 
 
 
@@ -52,7 +95,28 @@ Anaconda - Python 3.7
 
 
 
+```
 
+import cv2
+import numpy as np
+img  = cv2.VideoCapture(0)
+while True:
+    pic,frame = img.read()
+    width = int(img.get(3))
+    height = int(img.get(4))
+    image = np.zeros(frame.shape, np.uint8)
+    small_frame = cv2.resize(frame,(0,0),fx =0.5, fy = 0.5)
+    image[:height//2, :width//2]=cv2.rotate(small_frame,cv2.ROTATE_180)
+    image[height//2:, :width//2]=small_frame
+    image[:height//2, width//2:]=small_frame
+    image[height//2:, width//2:]=cv2.rotate(small_frame,cv2.ROTATE_180)
+    cv2.imshow('myimage',image)
+    if cv2.waitKey(1) == ord('c'):
+        break
+img.release()
+cv2.destroyAllWindows()
+
+```
 
 
 
@@ -62,24 +126,32 @@ Anaconda - Python 3.7
 ## Output
 
 ### i) Write the frame as JPG image
-</br>
-</br>
+
+
+
+![image](https://github.com/KathirvelAIDS/Image-Acquisition-from-Web-Cameraa/assets/94911373/9a86ce65-6e5d-4464-ad10-b819443d2bd6)
+
 
 
 ### ii) Display the video
-</br>
-</br>
+
+
+![image](https://github.com/KathirvelAIDS/Image-Acquisition-from-Web-Cameraa/assets/94911373/f6572153-41b1-4edc-a262-19183ad67e18)
 
 
 ### iii) Display the video by resizing the window
-</br>
-</br>
+
+
+
+![image](https://github.com/KathirvelAIDS/Image-Acquisition-from-Web-Cameraa/assets/94911373/064c9856-2a51-4ce5-924d-b106ef356670)
+
 
 
 
 ### iv) Rotate and display the video
-</br>
-</br>
+
+
+![image](https://github.com/KathirvelAIDS/Image-Acquisition-from-Web-Cameraa/assets/94911373/9ae77082-8623-4647-989f-46082299a462)
 
 
 
